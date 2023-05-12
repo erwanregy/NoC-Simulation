@@ -231,26 +231,8 @@ def main():
 
     start_time = time.time()
     
-    if "a" in args.parts:
-        part_a()
-    if "b" in args.parts:
-        part_b()
-    if "c" in args.parts:
-        if "buffer_size" in args.modifications:
-            part_c_buffer_size()
-        if "buffer_selection_strategy" in args.modifications:
-            part_c_buffer_selection_strategy()
-        if "routing_algorithm" in args.modifications:
-            part_c_routing_algorithm()
-        if "hotspot_distribution" in args.modifications:
-            part_c_hotspot_distribution()
-        elif "all" in args.modifications:
-            part_c_buffer_size()
-            part_c_routing_algorithm()
-            part_c_buffer_selection_strategy()
-            part_c_hotspot_distribution()
-        else:
-            raise ValueError("No modifications specified")
+    if args.parts is None:
+        raise ValueError("No parts specified")
     elif "all" in args.parts:
         part_a()
         part_b()
@@ -259,7 +241,27 @@ def main():
         part_c_buffer_selection_strategy()
         part_c_hotspot_distribution()
     else:
-        raise ValueError("No parts specified")
+        if "a" in args.parts:
+            part_a()
+        if "b" in args.parts:
+            part_b()
+        if "c" in args.parts:
+            if args.modifications is None:
+                raise ValueError("No modifications specified")
+            elif "all" in args.modifications:
+                part_c_buffer_size()
+                part_c_routing_algorithm()
+                part_c_buffer_selection_strategy()
+                part_c_hotspot_distribution()
+            else:
+                if "buffer_size" in args.modifications:
+                    part_c_buffer_size()
+                if "buffer_selection_strategy" in args.modifications:
+                    part_c_buffer_selection_strategy()
+                if "routing_algorithm" in args.modifications:
+                    part_c_routing_algorithm()
+                if "hotspot_distribution" in args.modifications:
+                    part_c_hotspot_distribution()
         
     print(f"Total time taken: {time.time() - start_time:.2f} seconds")
 

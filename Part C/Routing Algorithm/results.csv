@@ -1,0 +1,7 @@
+Routing algorithm,Total received packets,Total received flits,Received/Ideal flits ratio,Average wireless utilization,Global average delay (cycles),Max delay (cycles),Network throughput (flits/cycle),Average IP throughput (flits/cycle/IP),Total energy (J),Dynamic energy (J),Static energy (J)
+XY,54716,437715,0.899907,0,1942.46,86514,4.60753,0.0719926,8.83912e-05,9.38114e-06,7.901e-05
+West First,51604,412823,0.848731,0,2933.75,92203,4.34551,0.0678985,8.79241e-05,8.86283e-06,7.90612e-05
+North Last,40411,323263,0.664603,0,12166.5,83954,3.40277,0.0531683,8.70367e-05,7.97542e-06,7.90612e-05
+Negative First,46795,374346,0.769626,0,5110.43,96772,3.94048,0.0615701,8.72889e-05,8.22764e-06,7.90612e-05
+Odd Even,48348,386779,0.795187,0,5925.79,80415,4.07136,0.063615,8.77028e-05,8.6159e-06,7.90868e-05
+Dyad,42894,343172,0.705535,0,4132.94,93139,3.61234,0.0564428,8.63031e-05,7.19702e-06,7.9106e-05
