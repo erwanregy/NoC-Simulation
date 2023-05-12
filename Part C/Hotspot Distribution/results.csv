@@ -1,0 +1,5 @@
+Hotspot distribution,Total received packets,Total received flits,Received/Ideal flits ratio,Average wireless utilization,Global average delay (cycles),Max delay (cycles),Network throughput (flits/cycle),Average IP throughput (flits/cycle/IP),Total energy (J),Dynamic energy (J),Static energy (J)
+Corner,54287,434318,0.892924,0,2177.23,86285,4.57177,0.0714339,8.83536e-05,9.3436e-06,7.901e-05
+Centre,60263,482084,0.991127,0,74.0783,3327,5.07457,0.0792901,8.83462e-05,9.33612e-06,7.901e-05
+Sides,60375,482991,0.992991,0,65.8923,1869,5.08412,0.0794393,8.97898e-05,1.07798e-05,7.901e-05
+Diagonals,60802,486418,1.00004,0,41.4284,1089,5.12019,0.080003,8.9495e-05,1.0485e-05,7.901e-05

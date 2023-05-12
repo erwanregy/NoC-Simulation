@@ -141,8 +141,8 @@ def part_c_routing_algorithm():
     ]
 
     arguments = [
-        f"-routing {value.upper().replace(' ', '_')}{' 0.6' if value == 'Dyad' else ''} -pir 0.1 poisson -hs 0 0.05 -hs 1 0.05 -hs 2 0.05 -hs 3 0.05 -hs 8 0.05 -hs 9 0.05 -hs 10 0.05 -hs 11 0.05"
-        for value in values[:-1]
+        f"-routing {value.upper().replace(' ', '_')}{' 0.6' if value == 'Dyad' else ''} -pir 0.01 poisson -hs 0 0.05 -hs 1 0.05 -hs 2 0.05 -hs 3 0.05 -hs 8 0.05 -hs 9 0.05 -hs 10 0.05 -hs 11 0.05"
+        for value in values
     ]
     
     routing_algorithm = Variable(
@@ -190,10 +190,10 @@ def part_c_hotspot_distribution():
     ]
 
     arguments = [
-        "-hs 0 0.05 -hs 1 0.05 -hs 2 0.05 -hs 3 0.05 -hs 8 0.05 -hs 9 0.05 -hs 10 0.05 -hs 11",
-        "-hs 26 0.05 -hs 27 0.05 -hs 28 0.05 -hs 29 0.05 -hs 34 0.05 -hs 35 0.05 -hs 36 0.05 -hs 37"
-        "-hs 0 0.05 -hs 3 0.05 -hs 7 0.05 -hs 31 0.05 -hs 32 0.05 -hs 56 0.05 -hs 60 0.05 -hs 63"
-        "-hs 0 0.05 -hs 7 0.05 -hs 18 0.05 -hs 21 0.05 -hs 42 0.05 -hs 45 0.05 -hs 56 0.05 -hs 63",
+        "-pir 0.01 poisson -hs 0 0.05 -hs 1 0.05 -hs 2 0.05 -hs 3 0.05 -hs 8 0.05 -hs 9 0.05 -hs 10 0.05 -hs 11 0.05",
+        "-pir 0.01 poisson -hs 26 0.05 -hs 27 0.05 -hs 28 0.05 -hs 29 0.05 -hs 34 0.05 -hs 35 0.05 -hs 36 0.05 -hs 37 0.05",
+        "-pir 0.01 poisson -hs 0 0.05 -hs 3 0.05 -hs 7 0.05 -hs 31 0.05 -hs 32 0.05 -hs 56 0.05 -hs 60 0.05 -hs 63 0.05",
+        "-pir 0.01 poisson -hs 0 0.05 -hs 7 0.05 -hs 18 0.05 -hs 21 0.05 -hs 42 0.05 -hs 45 0.05 -hs 56 0.05 -hs 63 0.05",
     ]
 
     hotspot_distribution = Variable(
