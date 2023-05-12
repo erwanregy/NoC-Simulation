@@ -63,6 +63,7 @@ def run(directory: Path, variable: Variable) -> None:
             results_file.flush()
     print()
 
+
 def part_a():
     print("Part A")
 
@@ -73,21 +74,17 @@ def part_a():
     end = 0.1
 
     values = np.arange(start, end + step, step).round(3).tolist()
-    
+
     arguments = [f"-pir {value} poisson" for value in values]
 
-    packet_injection_rate = Variable(
-        "Packet injection rate",
-        values,
-        arguments
-    )
+    packet_injection_rate = Variable("Packet injection rate", values, arguments)
 
     run(Path.cwd().joinpath("Part A"), packet_injection_rate)
 
 
 def part_b():
     print("Part B")
-    
+
     import numpy as np
 
     start = 0.001
@@ -101,18 +98,14 @@ def part_b():
         for value in values
     ]
 
-    packet_injection_rate = Variable(
-        "Packet injection rate",
-        values,
-        arguments
-    )
+    packet_injection_rate = Variable("Packet injection rate", values, arguments)
 
     run(Path.cwd().joinpath("Part B"), packet_injection_rate)
 
 
 def part_c_buffer_size():
     print("Part C: Buffer size")
-    values = [2 ** size for size in range(1, 7)]
+    values = [2**size for size in range(1, 7)]
 
     arguments = [
         f"-buffer {value} -pir 0.01 poisson -hs 0 0.05 -hs 1 0.05 -hs 2 0.05 -hs 3 0.05 -hs 8 0.05 -hs 9 0.05 -hs 10 0.05 -hs 11 0.05"
@@ -130,7 +123,7 @@ def part_c_buffer_size():
 
 def part_c_routing_algorithm():
     print("Part C: Routing Algorithm")
-    
+
     values = [
         "XY",
         "West First",
@@ -144,13 +137,13 @@ def part_c_routing_algorithm():
         f"-routing {value.upper().replace(' ', '_')}{' 0.6' if value == 'Dyad' else ''} -pir 0.01 poisson -hs 0 0.05 -hs 1 0.05 -hs 2 0.05 -hs 3 0.05 -hs 8 0.05 -hs 9 0.05 -hs 10 0.05 -hs 11 0.05"
         for value in values
     ]
-    
+
     routing_algorithm = Variable(
         "Routing algorithm",
         values,
         arguments,
     )
-    
+
     run(Path.cwd().joinpath("Part C", "Routing Algorithm"), routing_algorithm)
 
 
@@ -181,7 +174,7 @@ def part_c_buffer_selection_strategy():
 
 def part_c_hotspot_distribution():
     print("Part C: Hotspot distribution")
-    
+
     values = [
         "Corner",
         "Centre",
@@ -209,7 +202,7 @@ def main():
     parser = argparse.ArgumentParser(description="Run Noxim simulations")
 
     parser.add_argument(
-        "parts",
+        "part",
         choices=["a", "b", "c", "all"],
         help="Part to run",
     )
@@ -230,10 +223,8 @@ def main():
     args = parser.parse_args()
 
     start_time = time.time()
-    
-    if args.parts is None:
-        raise ValueError("No parts specified")
-    elif "all" in args.parts:
+
+    if "all" in args.part:
         part_a()
         part_b()
         part_c_buffer_size()
@@ -241,11 +232,11 @@ def main():
         part_c_buffer_selection_strategy()
         part_c_hotspot_distribution()
     else:
-        if "a" in args.parts:
+        if "a" in args.part:
             part_a()
-        if "b" in args.parts:
+        if "b" in args.part:
             part_b()
-        if "c" in args.parts:
+        if "c" in args.part:
             if args.modifications is None:
                 raise ValueError("No modifications specified")
             elif "all" in args.modifications:
@@ -256,13 +247,13 @@ def main():
             else:
                 if "buffer_size" in args.modifications:
                     part_c_buffer_size()
-                if "buffer_selection_strategy" in args.modifications:
-                    part_c_buffer_selection_strategy()
                 if "routing_algorithm" in args.modifications:
                     part_c_routing_algorithm()
+                if "buffer_selection_strategy" in args.modifications:
+                    part_c_buffer_selection_strategy()
                 if "hotspot_distribution" in args.modifications:
                     part_c_hotspot_distribution()
-        
+
     print(f"Total time taken: {time.time() - start_time:.2f} seconds")
 
 

@@ -17,10 +17,10 @@ python run.py <parts> --modifications <modifications>
 
 Replace `<parts>` with the desired part to run (`a`, `b`, `c`, or `all`), and, optionally, `<modifications>` with the desired modification within part C (`buffer_size`, `hotspot_distribution`, `buffer_selection_strategy`, `routing_algorithm`, or `all`).
 
-For example, to run parts A and B:
+For example, to run all parts:
 
 ```sh
-python run.py a b
+python run.py all
 ```
 
 To run part C with the buffer size modifications:
