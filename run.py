@@ -92,7 +92,7 @@ def part_b():
 
     start = 0.001
     step = 0.001
-    end = 1
+    end = 0.1
 
     values = np.arange(start, end + step, step).round(3).tolist()
 

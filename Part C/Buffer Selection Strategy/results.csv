@@ -1,0 +1,4 @@
+Buffer selection strategy,Total received packets,Total received flits,Received/Ideal flits ratio,Average wireless utilization,Global average delay (cycles),Max delay (cycles),Network throughput (flits/cycle),Average IP throughput (flits/cycle/IP),Total energy (J),Dynamic energy (J),Static energy (J)
+Random,67029,536225,0.110244,0,42806.4,98119,5.64447,0.0881949,8.98988e-05,1.08887e-05,7.901e-05
+Buffer Level,66751,534009,0.109788,0,42505.7,98792,5.62115,0.0878304,8.98633e-05,1.08533e-05,7.901e-05
+Nop,66677,533420,0.109667,0,42304.9,99508,5.61495,0.0877336,8.98195e-05,1.08094e-05,7.901e-05
