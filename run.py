@@ -132,16 +132,17 @@ def part_c_routing_algorithm():
     print("Part C: Routing Algorithm")
     
     values = [
-        "WEST_FIRST",
-        "NORTH_LAST",
-        "NEGATIVE_FIRST",
-        "ODD_EVEN",
-        "DYAD",
+        "XY",
+        "West First",
+        "North Last",
+        "Negative First",
+        "Odd Even",
+        "Dyad",
     ]
 
     arguments = [
-        f"-routing {value + ' 0.6' if value == 'DYAD' else value} -pir 0.01 poisson -hs 0 0.05 -hs 1 0.05 -hs 2 0.05 -hs 3 0.05 -hs 8 0.05 -hs 9 0.05 -hs 10 0.05 -hs 11 0.05"
-        for value in values
+        f"-routing {value.upper().replace(' ', '_')}{' 0.6' if value == 'Dyad' else ''} -pir 0.1 poisson -hs 0 0.05 -hs 1 0.05 -hs 2 0.05 -hs 3 0.05 -hs 8 0.05 -hs 9 0.05 -hs 10 0.05 -hs 11 0.05"
+        for value in values[:-1]
     ]
     
     routing_algorithm = Variable(
@@ -156,13 +157,13 @@ def part_c_routing_algorithm():
 def part_c_buffer_selection_strategy():
     print("Part C: Buffer selection strategy")
     values = [
-        "RANDOM",
-        "BUFFER_LEVEL",
-        "NOP",
+        "Random",
+        "Buffer level",
+        "Nop",
     ]
 
     arguments = [
-        f"-sel {value} -pir 0.1 poisson -hs 0 0.05 -hs 1 0.05 -hs 2 0.05 -hs 3 0.05 -hs 8 0.05 -hs 9 0.05 -hs 10 0.05 -hs 11 0.05"
+        f"-sel {value.upper().replace(' ', '_')} -pir 0.1 poisson -hs 0 0.05 -hs 1 0.05 -hs 2 0.05 -hs 3 0.05 -hs 8 0.05 -hs 9 0.05 -hs 10 0.05 -hs 11 0.05"
         for value in values
     ]
 
@@ -182,16 +183,16 @@ def part_c_hotspot_distribution():
     print("Part C: Hotspot distribution")
     
     values = [
-        "DEFAULT",
-        "EDGE",
-        "CENTER",
-        "SPREAD",
+        "Corner",
+        "Centre",
+        "Sides",
+        "Diagonals",
     ]
 
     arguments = [
         "-hs 0 0.05 -hs 1 0.05 -hs 2 0.05 -hs 3 0.05 -hs 8 0.05 -hs 9 0.05 -hs 10 0.05 -hs 11",
-        "-hs 0 0.05 -hs 3 0.05 -hs 7 0.05 -hs 31 0.05 -hs 32 0.05 -hs 56 0.05 -hs 60 0.05 -hs 63"
         "-hs 26 0.05 -hs 27 0.05 -hs 28 0.05 -hs 29 0.05 -hs 34 0.05 -hs 35 0.05 -hs 36 0.05 -hs 37"
+        "-hs 0 0.05 -hs 3 0.05 -hs 7 0.05 -hs 31 0.05 -hs 32 0.05 -hs 56 0.05 -hs 60 0.05 -hs 63"
         "-hs 0 0.05 -hs 7 0.05 -hs 18 0.05 -hs 21 0.05 -hs 42 0.05 -hs 45 0.05 -hs 56 0.05 -hs 63",
     ]
 
