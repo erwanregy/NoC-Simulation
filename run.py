@@ -209,6 +209,7 @@ def main():
     parser = argparse.ArgumentParser(description="Run Noxim simulations")
 
     parser.add_argument(
+        "parts",
         choices=["a", "b", "c", "all"],
         help="Part to run",
     )
